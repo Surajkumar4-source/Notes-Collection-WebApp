@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes Making WebApp</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#" data-subject="math">HADOOP</a></li>
+                <li><a href="#" data-subject="science">LINUX</a></li>
+                <li><a href="#" data-subject="history">HPC</a></li>
+                <li><a href="#" data-subject="literature">PYTHON</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Notes with Images</h1>
+            <form id="noteForm">
+                <input type="text" id="title" placeholder="Title" required>
+                <textarea id="content" placeholder="Your notes..." required></textarea>
+                <input type="file" id="imageInput" accept="image/*">
+                <button type="submit">Add Note</button>
+            </form>
+            <div id="notesContainer"></div>
+        </div>
+
+        <!-- Edit Note Modal -->
+        <div id="editModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Edit Note</h2>
+                <input type="text" id="editTitle" placeholder="Title">
+                <textarea id="editContent" placeholder="Your note..."></textarea>
+                <input type="file" id="editImageInput" accept="image/*">
+                <button id="deleteImage">Delete Image</button>
+                <label for="imgSize">Image Size:</label>
+                <input type="range" id="imgSize" min="10" max="100" value="100">
+                <div>
+                    <label for="highlightColor">Highlight Color:</label>
+                    <input type="color" id="highlightColor">
+                    <button id="highlightButton">Highlight</button>
+                </div>
+                <div>
+                    <button id="alignLeft">Align Left</button>
+                    <button id="alignCenter">Align Center</button>
+                    <button id="alignRight">Align Right</button>
+                </div>
+                <div>
+                    <label for="fontSize">Font Size:</label>
+                    <input type="number" id="fontSize" min="8" max="72" value="16">
+                    <button id="boldButton">Bold</button>
+                </div>
+                <div>
+                    <label for="lineSpacing">Line Spacing:</label>
+                    <input type="number" id="lineSpacing" min="1" max="3" step="0.1" value="1.5">
+                </div>
+                <button id="saveEdit">Save Changes</button>
+            </div>
+        </div>
+
+        <!-- Password Modal -->
+        <div id="passwordModal" class="modal">
+            <div class="modal-content">
+                <h2>Enter Password</h2>
+                <input type="password" id="passwordInput" placeholder="Password" required>
+                <button id="passwordSubmit">Submit</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
