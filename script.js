@@ -85,8 +85,9 @@ document.addEventListener('DOMContentLoaded', function() {
         noteTitle.textContent = note.title;
         noteElement.appendChild(noteTitle);
 
-        const noteContent = document.createElement('p');
-        noteContent.innerHTML = note.content;
+        const noteContent = document.createElement('div');
+        noteContent.classList.add('note-content');
+        noteContent.innerHTML = note.content.split('\n').map(paragraph => `<p>${paragraph}</p>`).join('');
         noteElement.appendChild(noteContent);
 
         if (note.image) {
@@ -254,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateNoteInDOM(note) {
         const noteElement = document.querySelector(`.note[data-id='${note.id}']`);
         noteElement.querySelector('h2').textContent = note.title;
-        noteElement.querySelector('p').innerHTML = note.content;
+        noteElement.querySelector('.note-content').innerHTML = note.content.split('\n').map(paragraph => `<p>${paragraph}</p>`).join('');
         noteElement.style.textAlign = note.textAlign;
         noteElement.style.fontSize = note.fontSize + 'px';
         noteElement.style.lineHeight = note.lineSpacing;
